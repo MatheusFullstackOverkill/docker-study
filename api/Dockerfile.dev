@@ -1,0 +1,14 @@
+FROM python:3
+
+WORKDIR /app
+
+COPY . . 
+
+RUN pip install -r requirements.txt
+
+ENV FLASK_APP=main.py
+ENV FLASK_DEBUG=on
+
+EXPOSE 5000
+
+CMD flask --app main run --host 0.0.0.0 --debugger --port 5000
